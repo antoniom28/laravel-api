@@ -167,9 +167,8 @@ class PostController extends Controller
         $post->fill($data);
         $post->save();
         $post->tags()->sync($tag_to_pass);
-        return redirect()->route('admin.posts.show' , $post->id);
+        return redirect()->route('admin.posts.show' , $post->slug);
 
-        $tag_to_pass = $this->control_tag($data['tag']);
     }
 
     /**
