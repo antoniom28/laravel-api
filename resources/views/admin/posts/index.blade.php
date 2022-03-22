@@ -120,6 +120,9 @@
                     <a href="{{route('admin.posts.show' , $post->slug)}}">
                         VISUALIZZA
                     </a>
+                    <a href="/api/posts/{{$post->id}}">
+                        VISUALIZZA API
+                    </a>
                 </div>
 
                 @if(!$menu)

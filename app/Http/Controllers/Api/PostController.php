@@ -8,13 +8,13 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function index(){
-        /*return response()->json([
-            "name" => 'anto',
-            'surname' => 'marc',
-        ]);*/
-
-        $posts = Post::where('category_id' , '!=' , null)->get();
+    public function index($id = null){
+        if($id)
+            $posts = Post::whereId($id)->get();
+        else
+            $posts = Post::all();
+        //$posts = Post::where('category_id' , $id)->get();
+        //$posts = Post::where('category_id' , '!=' , null)->get();
         return response()->json($posts);
     }
 }

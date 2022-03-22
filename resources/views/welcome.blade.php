@@ -93,6 +93,9 @@
                     <a href="admin/posts">
                         <h1>SEE ALL POST</h1>
                     </a>
+                    <a href="api/posts">
+                        <h1>API DI TUTTI POST</h1>
+                    </a>
                 </div>
                 @else
                 <h1>EFFETTUA IL LOGIN</h1>
