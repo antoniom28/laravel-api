@@ -26,6 +26,14 @@
         <div class="footer">
             <div class="content">
                 {{post.content}}
+                <a 
+                    v-for="(tag,index) in post.tags"
+                    :key="index"
+                    :href="'/admin/tags/'+tag.id"
+                    class="hashtag"
+                >
+                    #{{tag.name}}
+                </a>
             </div>
             <div class="comments">
                 Comments
@@ -92,6 +100,11 @@ img{
                 transform: translate(-50% , -50%);
             }
         }
+    }
+
+    .hashtag{
+        margin: 0 2px;
+        text-decoration: none;
     }
 
     .footer{

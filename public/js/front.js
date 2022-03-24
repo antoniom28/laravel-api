@@ -2000,6 +2000,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Post",
   props: {
@@ -2133,7 +2141,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var _this$posts;
 
-        var response, i;
+        var response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -2145,13 +2153,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 response = _context.sent;
 
                 //console.log(response.data);
-                (_this$posts = _this.posts).push.apply(_this$posts, _toConsumableArray(response.data));
+                (_this$posts = _this.posts).push.apply(_this$posts, _toConsumableArray(response.data)); //for(let i=0; i<this.posts.length; i++)
+                //this.concatTag(this.posts[i]);
 
-                for (i = 0; i < _this.posts.length; i++) {
-                  _this.concatTag(_this.posts[i]);
-                }
 
-              case 5:
+              case 4:
               case "end":
                 return _context.stop();
             }
@@ -2184,7 +2190,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "img[data-v-05ce9554] {\n  width: 100%;\n}\n.post-box[data-v-05ce9554] {\n  overflow: hidden;\n  border-radius: 4px;\n  border: 1px solid #d4d4d4;\n  width: 600px;\n  margin: 30px auto;\n  background-color: white;\n}\n.post-box .header[data-v-05ce9554] {\n  height: 60px;\n  padding: 0 20px;\n}\n.post-box .header .image-404[data-v-05ce9554] {\n  width: 30px;\n  height: 30px;\n  background-color: red;\n}\n.post-box .header .profile-pic[data-v-05ce9554] {\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  position: relative;\n  margin-right: 15px;\n}\n.post-box .header .profile-pic img[data-v-05ce9554] {\n  border-radius: 50%;\n  position: absolute;\n  height: 100%;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.post-box .footer[data-v-05ce9554] {\n  padding: 0 20px;\n}\n.post-box .footer .content[data-v-05ce9554], .post-box .footer .comments[data-v-05ce9554] {\n  margin: 8px 0;\n}\n.post-box .footer .comments[data-v-05ce9554] {\n  color: grey;\n}\n.post-box .add-comment[data-v-05ce9554] {\n  border-top: 1px solid #d4d4d4;\n  height: 50px;\n}\n.post-box .add-comment .comment[data-v-05ce9554] {\n  width: 90%;\n}\n.post-box .add-comment .comment input[data-v-05ce9554] {\n  height: 25px;\n  font-size: 1.1em;\n  width: 90%;\n  border: unset;\n  background-color: unset;\n}\n.post-box .add-comment .comment input[data-v-05ce9554]:focus-visible {\n  outline: unset;\n}\n.post-box .add-comment .publish[data-v-05ce9554] {\n  width: 10%;\n  color: skyblue;\n}\n.image-404[data-v-05ce9554] {\n  width: 100%;\n  height: 300px;\n  background-color: red;\n}", ""]);
+exports.push([module.i, "img[data-v-05ce9554] {\n  width: 100%;\n}\n.post-box[data-v-05ce9554] {\n  overflow: hidden;\n  border-radius: 4px;\n  border: 1px solid #d4d4d4;\n  width: 600px;\n  margin: 30px auto;\n  background-color: white;\n}\n.post-box .header[data-v-05ce9554] {\n  height: 60px;\n  padding: 0 20px;\n}\n.post-box .header .image-404[data-v-05ce9554] {\n  width: 30px;\n  height: 30px;\n  background-color: red;\n}\n.post-box .header .profile-pic[data-v-05ce9554] {\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  position: relative;\n  margin-right: 15px;\n}\n.post-box .header .profile-pic img[data-v-05ce9554] {\n  border-radius: 50%;\n  position: absolute;\n  height: 100%;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.post-box .hashtag[data-v-05ce9554] {\n  margin: 0 2px;\n  text-decoration: none;\n}\n.post-box .footer[data-v-05ce9554] {\n  padding: 0 20px;\n}\n.post-box .footer .content[data-v-05ce9554], .post-box .footer .comments[data-v-05ce9554] {\n  margin: 8px 0;\n}\n.post-box .footer .comments[data-v-05ce9554] {\n  color: grey;\n}\n.post-box .add-comment[data-v-05ce9554] {\n  border-top: 1px solid #d4d4d4;\n  height: 50px;\n}\n.post-box .add-comment .comment[data-v-05ce9554] {\n  width: 90%;\n}\n.post-box .add-comment .comment input[data-v-05ce9554] {\n  height: 25px;\n  font-size: 1.1em;\n  width: 90%;\n  border: unset;\n  background-color: unset;\n}\n.post-box .add-comment .comment input[data-v-05ce9554]:focus-visible {\n  outline: unset;\n}\n.post-box .add-comment .publish[data-v-05ce9554] {\n  width: 10%;\n  color: skyblue;\n}\n.image-404[data-v-05ce9554] {\n  width: 100%;\n  height: 300px;\n  background-color: red;\n}", ""]);
 
 // exports
 
@@ -4226,9 +4232,31 @@ var render = function () {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "footer" }, [
-      _c("div", { staticClass: "content" }, [
-        _vm._v("\n            " + _vm._s(_vm.post.content) + "\n        "),
-      ]),
+      _c(
+        "div",
+        { staticClass: "content" },
+        [
+          _vm._v(
+            "\n            " + _vm._s(_vm.post.content) + "\n            "
+          ),
+          _vm._l(_vm.post.tags, function (tag, index) {
+            return _c(
+              "a",
+              {
+                key: index,
+                staticClass: "hashtag",
+                attrs: { href: "/admin/tags/" + tag.id },
+              },
+              [
+                _vm._v(
+                  "\n                #" + _vm._s(tag.name) + "\n            "
+                ),
+              ]
+            )
+          }),
+        ],
+        2
+      ),
       _vm._v(" "),
       _c("div", { staticClass: "comments" }, [
         _vm._v("\n            Comments\n        "),
