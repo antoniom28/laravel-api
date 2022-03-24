@@ -4,11 +4,14 @@
         <div class="header align-items-center justify-between">
             <div class="left align-items-center">
                <div class="profile-pic">
-                   <img v-if="post.user.avatar" :src="'storage/'+post.user.avatar">
+                   <img v-if="post.user && post.user.avatar" :src="'storage/'+post.user.avatar">
                    <div v-else class="image-404"></div>
                </div>
-               <div class="profile-name">
+               <div v-if="post.user" class="profile-name">
                    {{post.user.name}}
+               </div>
+               <div v-else class="profile-name">
+                   utente generato dal seed
                </div>
             </div>
             <div class="right">

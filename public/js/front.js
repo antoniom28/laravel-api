@@ -2008,6 +2008,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Post",
   props: {
@@ -4282,16 +4285,22 @@ var render = function () {
     _c("div", { staticClass: "header align-items-center justify-between" }, [
       _c("div", { staticClass: "left align-items-center" }, [
         _c("div", { staticClass: "profile-pic" }, [
-          _vm.post.user.avatar
+          _vm.post.user && _vm.post.user.avatar
             ? _c("img", { attrs: { src: "storage/" + _vm.post.user.avatar } })
             : _c("div", { staticClass: "image-404" }),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "profile-name" }, [
-          _vm._v(
-            "\n               " + _vm._s(_vm.post.user.name) + "\n           "
-          ),
-        ]),
+        _vm.post.user
+          ? _c("div", { staticClass: "profile-name" }, [
+              _vm._v(
+                "\n               " +
+                  _vm._s(_vm.post.user.name) +
+                  "\n           "
+              ),
+            ])
+          : _c("div", { staticClass: "profile-name" }, [
+              _vm._v("\n               utente generato dal seed\n           "),
+            ]),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "right" }, [
