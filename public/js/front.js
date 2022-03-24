@@ -1990,6 +1990,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Post",
   props: {
@@ -2110,13 +2120,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     this.getPost();
   },
   methods: {
+    concatTag: function concatTag(post) {
+      console.log(post);
+
+      for (var i = 0; i < post.tags.length; i++) {
+        post.content += " #".concat(post.tags[i].name);
+      }
+    },
     getPost: function getPost() {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var _this$posts;
 
-        var response;
+        var response, i;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -2126,9 +2143,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 2:
                 response = _context.sent;
-                console.log(response.data);
 
+                //console.log(response.data);
                 (_this$posts = _this.posts).push.apply(_this$posts, _toConsumableArray(response.data));
+
+                for (i = 0; i < _this.posts.length; i++) {
+                  _this.concatTag(_this.posts[i]);
+                }
 
               case 5:
               case "end":
@@ -2163,7 +2184,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "img[data-v-05ce9554] {\n  width: 100%;\n}\n.post-box[data-v-05ce9554] {\n  overflow: hidden;\n  border-radius: 4px;\n  border: 1px solid #d4d4d4;\n  width: 600px;\n  margin: 30px auto;\n  background-color: white;\n}\n.post-box .header[data-v-05ce9554] {\n  height: 60px;\n  padding: 0 10px;\n}\n.post-box .footer[data-v-05ce9554] {\n  padding: 0 10px;\n}\n.post-box .footer .content[data-v-05ce9554], .post-box .footer .comments[data-v-05ce9554] {\n  margin: 8px 0;\n}\n.post-box .footer .comments[data-v-05ce9554] {\n  color: grey;\n}\n.post-box .footer .add-comment[data-v-05ce9554] {\n  border-top: 1px solid #d4d4d4;\n  height: 50px;\n}\n.post-box .footer .add-comment .comment[data-v-05ce9554] {\n  width: 90%;\n}\n.post-box .footer .add-comment .comment input[data-v-05ce9554] {\n  height: 25px;\n  font-size: 1.1em;\n  width: 90%;\n  border: unset;\n  background-color: unset;\n}\n.post-box .footer .add-comment .comment input[data-v-05ce9554]:focus-visible {\n  outline: unset;\n}\n.post-box .footer .add-comment .publish[data-v-05ce9554] {\n  width: 10%;\n  color: skyblue;\n}\n.image-404[data-v-05ce9554] {\n  width: 100%;\n  height: 300px;\n  background-color: red;\n}", ""]);
+exports.push([module.i, "img[data-v-05ce9554] {\n  width: 100%;\n}\n.post-box[data-v-05ce9554] {\n  overflow: hidden;\n  border-radius: 4px;\n  border: 1px solid #d4d4d4;\n  width: 600px;\n  margin: 30px auto;\n  background-color: white;\n}\n.post-box .header[data-v-05ce9554] {\n  height: 60px;\n  padding: 0 20px;\n}\n.post-box .header .image-404[data-v-05ce9554] {\n  width: 30px;\n  height: 30px;\n  background-color: red;\n}\n.post-box .header .profile-pic[data-v-05ce9554] {\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  position: relative;\n  margin-right: 15px;\n}\n.post-box .header .profile-pic img[data-v-05ce9554] {\n  border-radius: 50%;\n  position: absolute;\n  height: 100%;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.post-box .footer[data-v-05ce9554] {\n  padding: 0 20px;\n}\n.post-box .footer .content[data-v-05ce9554], .post-box .footer .comments[data-v-05ce9554] {\n  margin: 8px 0;\n}\n.post-box .footer .comments[data-v-05ce9554] {\n  color: grey;\n}\n.post-box .add-comment[data-v-05ce9554] {\n  border-top: 1px solid #d4d4d4;\n  height: 50px;\n}\n.post-box .add-comment .comment[data-v-05ce9554] {\n  width: 90%;\n}\n.post-box .add-comment .comment input[data-v-05ce9554] {\n  height: 25px;\n  font-size: 1.1em;\n  width: 90%;\n  border: unset;\n  background-color: unset;\n}\n.post-box .add-comment .comment input[data-v-05ce9554]:focus-visible {\n  outline: unset;\n}\n.post-box .add-comment .publish[data-v-05ce9554] {\n  width: 10%;\n  color: skyblue;\n}\n.image-404[data-v-05ce9554] {\n  width: 100%;\n  height: 300px;\n  background-color: red;\n}", ""]);
 
 // exports
 
@@ -2182,7 +2203,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".fill-menu[data-v-1f42fb90] {\n  height: 60px;\n}\n.main-menu[data-v-1f42fb90] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 60px;\n  background-color: purple;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\na.icon[data-v-1f42fb90] {\n  width: 20px;\n  height: 20px;\n}\n.menu-right[data-v-1f42fb90] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}", ""]);
+exports.push([module.i, ".fill-menu[data-v-1f42fb90] {\n  height: 60px;\n}\n.main-menu[data-v-1f42fb90] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 9999;\n  width: 100%;\n  height: 60px;\n  background-color: purple;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\na.icon[data-v-1f42fb90] {\n  width: 20px;\n  height: 20px;\n}\n.menu-right[data-v-1f42fb90] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}", ""]);
 
 // exports
 
@@ -4173,8 +4194,18 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "post-box" }, [
     _c("div", { staticClass: "header align-items-center justify-between" }, [
-      _c("div", { staticClass: "left" }, [
-        _vm._v("\n           Foto e Nome Utente\n        "),
+      _c("div", { staticClass: "left align-items-center" }, [
+        _c("div", { staticClass: "profile-pic" }, [
+          _vm.post.user.avatar
+            ? _c("img", { attrs: { src: "storage/" + _vm.post.user.avatar } })
+            : _c("div", { staticClass: "image-404" }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "profile-name" }, [
+          _vm._v(
+            "\n               " + _vm._s(_vm.post.user.name) + "\n           "
+          ),
+        ]),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "right" }, [
@@ -4202,38 +4233,32 @@ var render = function () {
       _c("div", { staticClass: "comments" }, [
         _vm._v("\n            Comments\n        "),
       ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "add-comment align-items-center" }, [
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "add-comment align-items-center" }, [
+      _c("div", { staticClass: "comment align-items-center justify-around" }, [
         _c(
-          "div",
-          { staticClass: "comment align-items-center justify-around" },
+          "svg",
+          {
+            attrs: {
+              xmlns: "http://www.w3.org/2000/svg",
+              viewBox: "0 0 512 512",
+            },
+          },
           [
-            _c(
-              "svg",
-              {
-                attrs: {
-                  xmlns: "http://www.w3.org/2000/svg",
-                  viewBox: "0 0 512 512",
-                },
+            _c("path", {
+              attrs: {
+                d: "M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM256 432C332.1 432 396.2 382 415.2 314.1C419.1 300.4 407.8 288 393.6 288H118.4C104.2 288 92.92 300.4 96.76 314.1C115.8 382 179.9 432 256 432V432zM133.5 114.7C125.6 110.4 116 116.2 116 125.1C116 127.9 116.1 130.6 118.8 132.8L154.8 176L118.8 219.2C116.1 221.4 116 224.1 116 226.9C116 235.8 125.6 241.6 133.5 237.3L223.4 189.4C234.1 183.7 234.1 168.3 223.4 162.6L133.5 114.7zM396 125.1C396 116.2 386.4 110.4 378.5 114.7L288.6 162.6C277.9 168.3 277.9 183.7 288.6 189.4L378.5 237.3C386.4 241.6 396 235.8 396 226.9C396 224.1 395 221.4 393.2 219.2L357.2 176L393.2 132.8C395 130.6 396 127.9 396 125.1V125.1z",
               },
-              [
-                _c("path", {
-                  attrs: {
-                    d: "M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM256 432C332.1 432 396.2 382 415.2 314.1C419.1 300.4 407.8 288 393.6 288H118.4C104.2 288 92.92 300.4 96.76 314.1C115.8 382 179.9 432 256 432V432zM133.5 114.7C125.6 110.4 116 116.2 116 125.1C116 127.9 116.1 130.6 118.8 132.8L154.8 176L118.8 219.2C116.1 221.4 116 224.1 116 226.9C116 235.8 125.6 241.6 133.5 237.3L223.4 189.4C234.1 183.7 234.1 168.3 223.4 162.6L133.5 114.7zM396 125.1C396 116.2 386.4 110.4 378.5 114.7L288.6 162.6C277.9 168.3 277.9 183.7 288.6 189.4L378.5 237.3C386.4 241.6 396 235.8 396 226.9C396 224.1 395 221.4 393.2 219.2L357.2 176L393.2 132.8C395 130.6 396 127.9 396 125.1V125.1z",
-                  },
-                }),
-              ]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "text", placeholder: "Add a comment" },
             }),
           ]
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "publish align-items-center" }, [
-          _vm._v("\n                Publish\n            "),
-        ]),
+        _c("input", { attrs: { type: "text", placeholder: "Add a comment" } }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "publish align-items-center" }, [
+        _vm._v("\n            Publish\n        "),
       ]),
     ]),
   ])

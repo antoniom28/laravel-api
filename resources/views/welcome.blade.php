@@ -87,12 +87,12 @@
             @if (Route::has('login'))
                 @auth
                 <div class="d-flex text-center">
-                    <a href="admin/posts/create">
+                   <!-- <a href="admin/posts/create">
                         <h1>CREATE A POST</h1>
                     </a>
                     <a href="admin/posts">
                         <h1>SEE ALL POST</h1>
-                    </a>
+                    </a> -->
                     <a href="api/posts">
                         <h1>API DI TUTTI POST</h1>
                     </a>

@@ -28,10 +28,18 @@ export default {
       this.getPost();
     },
     methods: {
+      concatTag(post){
+        console.log(post);
+        for(let i=0; i<post.tags.length; i++){
+          post.content += ` #${post.tags[i].name}`;
+        }
+      },
       async getPost() {
       let response = await this.makeAxiosCall(`api/posts`);
-      console.log(response.data);
+      //console.log(response.data);
       this.posts.push(...response.data);
+      for(let i=0; i<this.posts.length; i++)
+        this.concatTag(this.posts[i]);
     },
     makeAxiosCall(url) {
       console.log(`call of axos`);

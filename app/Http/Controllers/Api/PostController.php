@@ -13,6 +13,11 @@ class PostController extends Controller
             $posts = Post::whereId($id)->get();
         else
             $posts = Post::all();
+
+        foreach($posts as $post){
+            $post['user'] = $post->user;
+            $post['tags'] = $post->tags;
+        }
         //$posts = Post::where('category_id' , $id)->get();
         //$posts = Post::where('category_id' , '!=' , null)->get();
         return response()->json($posts);
