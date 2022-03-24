@@ -114,7 +114,7 @@ class PostController extends Controller
         $new_post->save();
 
         $new_post->tags()->sync($tag_to_pass);
-        return redirect()->route('admin.posts.index');
+        return redirect()->Route('homepage');
 
     }
 

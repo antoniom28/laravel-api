@@ -81,7 +81,7 @@
 
     <button type="submit" class="btn btn-primary">CREA</button>
     </form>
-    <a href="/admin/posts">
+    <a href="/">
         <h3 class="mt-2">Back to post</h3>
     </a>
     

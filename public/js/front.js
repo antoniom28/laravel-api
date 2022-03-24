@@ -2089,6 +2089,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Header',
   data: function data() {
@@ -2287,7 +2291,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".image[data-v-1f42fb90] {\n  margin: 0 15px;\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n}\nimg[data-v-1f42fb90] {\n  height: 100%;\n  width: 100%;\n  border-radius: 50%;\n}\n.image-404[data-v-1f42fb90] {\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  background-color: red;\n}\n.fill-menu[data-v-1f42fb90] {\n  height: 60px;\n}\n.main-menu[data-v-1f42fb90] {\n  position: fixed;\n  border-bottom: 1px solid #d4d4d4;\n  padding: 0 30px;\n  top: 0;\n  left: 0;\n  z-index: 9999;\n  width: 100%;\n  height: 60px;\n  background-color: white;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\na.icon[data-v-1f42fb90] {\n  width: 20px;\n  height: 20px;\n}\n.menu-right[data-v-1f42fb90] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\ninput[data-v-1f42fb90] {\n  border-radius: 6px;\n  margin: 0 10px;\n  padding: 2px 15px;\n  background-color: #d4d4d4;\n  height: 30px;\n}\ninput:focus-visible + .sub-search[data-v-1f42fb90] {\n  display: block;\n}\n.sub-search[data-v-1f42fb90]:hover {\n  display: block;\n}\n.sub-search[data-v-1f42fb90] {\n  display: none;\n  padding: 20px 10px;\n  position: fixed;\n  height: 300px;\n  z-index: 9999;\n  width: 300px;\n  left: calc(50% - 150px);\n  top: 60px;\n  background-color: #fafafa;\n}\n.sub-search li[data-v-1f42fb90] {\n  background-color: white;\n  height: 60px;\n}\n.sub-search li[data-v-1f42fb90]:hover {\n  background-color: #f4f4f4;\n  cursor: pointer;\n}", ""]);
+exports.push([module.i, ".image[data-v-1f42fb90] {\n  margin: 0 15px;\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n}\nimg[data-v-1f42fb90] {\n  height: 100%;\n  width: 100%;\n  border-radius: 50%;\n}\n.image-404[data-v-1f42fb90] {\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  background-color: red;\n}\n.fill-menu[data-v-1f42fb90] {\n  height: 60px;\n}\n.main-menu[data-v-1f42fb90] {\n  position: fixed;\n  border-bottom: 1px solid #d4d4d4;\n  padding: 0 30px;\n  top: 0;\n  left: 0;\n  z-index: 9999;\n  width: 100%;\n  height: 60px;\n  background-color: white;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\na.icon[data-v-1f42fb90] {\n  margin-left: 15px;\n  width: 20px;\n  height: 20px;\n}\n.menu-right[data-v-1f42fb90] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\ninput[data-v-1f42fb90] {\n  border-radius: 6px;\n  margin: 0 10px;\n  padding: 2px 15px;\n  background-color: #d4d4d4;\n  height: 30px;\n}\ninput:focus-visible + .sub-search[data-v-1f42fb90] {\n  display: block;\n}\n.sub-search[data-v-1f42fb90]:hover {\n  display: block;\n}\n.sub-search[data-v-1f42fb90] {\n  display: none;\n  padding: 20px 10px;\n  position: fixed;\n  height: 300px;\n  z-index: 9999;\n  width: 300px;\n  left: calc(50% - 150px);\n  top: 60px;\n  background-color: #fafafa;\n}\n.sub-search li[data-v-1f42fb90] {\n  background-color: white;\n  height: 60px;\n}\n.sub-search li[data-v-1f42fb90]:hover {\n  background-color: #f4f4f4;\n  cursor: pointer;\n}", ""]);
 
 // exports
 
@@ -4497,6 +4501,25 @@ var render = function () {
             ),
           ]
         ),
+        _vm._v(" "),
+        _c("a", { staticClass: "icon", attrs: { href: "/admin" } }, [
+          _c(
+            "svg",
+            {
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                viewBox: "0 0 448 512",
+              },
+            },
+            [
+              _c("path", {
+                attrs: {
+                  d: "M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z",
+                },
+              }),
+            ]
+          ),
+        ]),
       ]),
     ]),
   ])

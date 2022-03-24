@@ -92,13 +92,13 @@
                     </a>
                     <a href="admin/posts">
                         <h1>SEE ALL POST</h1>
-                    </a> -->
+                    </a> 
                     <a href="api/posts">
                         <h1>API DI TUTTI POST</h1>
-                    </a>
+                    </a> -->
                 </div>
                 @else
-                <h1>EFFETTUA IL LOGIN</h1>
+                <h1>DEVI EFFETTUARE IL LOGIN</h1>
                 @endauth
             @endif
             </div>

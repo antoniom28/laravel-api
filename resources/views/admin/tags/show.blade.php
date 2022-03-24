@@ -5,7 +5,7 @@
     use App\User;
 ?>
 <h1>
-    <a class="d-inline-block" href="{{route("admin.posts.index")}}">Torna ai post</a>
+    <a class="d-inline-block" href="{{route("homepage")}}">Torna ai post</a>
 </h1>
 @foreach ($posts as $post)
 <div class="flex-row my-4 card">

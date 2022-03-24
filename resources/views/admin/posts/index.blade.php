@@ -55,7 +55,7 @@
             </div>
         @else
             <h1>
-                <a class="d-inline-block" href="{{route("admin.posts.index")}}">Torna ai post</a>
+                <a class="d-inline-block" href="{{route("homepage")}}">Torna ai post</a>
             </h1>
         @endif
         

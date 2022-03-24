@@ -73,7 +73,7 @@
 
     <button type="submit" class="btn btn-primary">Modifica</button>
     </form>
-    <a href="/admin/posts">
+    <a href="/">
         <h3 class="mt-2">Torna ai post</h3>
     </a>
     

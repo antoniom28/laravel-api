@@ -8,7 +8,7 @@
             <p> <strong>Slug</strong>: {{$post->slug}} </p>
             <span> Creato il : {{$post->created_at}} </span>
         </div>
-        <a href="/admin/posts">
+        <a href="/">
             <h3 class="mt-2">Torna ai post</h3>
         </a>
     @else
