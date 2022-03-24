@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Post;
+use App\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -21,5 +22,11 @@ class PostController extends Controller
         //$posts = Post::where('category_id' , $id)->get();
         //$posts = Post::where('category_id' , '!=' , null)->get();
         return response()->json($posts);
+    }
+
+    public function indexUsers($name = null){
+        if($name != null)
+            $users = User::where('name', 'like', $name.'%')->get();
+        return response()->json($users);
     }
 }

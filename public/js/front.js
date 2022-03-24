@@ -2047,6 +2047,27 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2065,7 +2086,59 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Header'
+  name: 'Header',
+  data: function data() {
+    return {
+      inputText: "",
+      prevInput: null,
+      usersSearched: []
+    };
+  },
+  methods: {
+    controlInput: function controlInput() {
+      if (this.inputText != "" && this.inputText != this.prevInput) {
+        this.prevInput = this.inputText;
+        this.getUsers();
+      } else {
+        this.usersSearched = [];
+      }
+    },
+    getUsers: function getUsers() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _this.makeAxiosCall("api/users/".concat(_this.inputText));
+
+              case 2:
+                response = _context.sent;
+                console.log(response.data); //this.posts.push(...response.data);
+
+                _this.usersSearched = response.data; //for(let i=0; i<this.posts.length; i++)
+                //this.concatTag(this.posts[i]);
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    makeAxiosCall: function makeAxiosCall(url) {
+      console.log("call of axos");
+      return axios.get(url, {
+        params: {
+          api_key: "8de7c27ea07119ebc4c79cbfffb7d231"
+        }
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -2190,7 +2263,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "img[data-v-05ce9554] {\n  width: 100%;\n}\n.post-box[data-v-05ce9554] {\n  overflow: hidden;\n  border-radius: 4px;\n  border: 1px solid #d4d4d4;\n  width: 600px;\n  margin: 30px auto;\n  background-color: white;\n}\n.post-box .header[data-v-05ce9554] {\n  height: 60px;\n  padding: 0 20px;\n}\n.post-box .header .image-404[data-v-05ce9554] {\n  width: 30px;\n  height: 30px;\n  background-color: red;\n}\n.post-box .header .profile-pic[data-v-05ce9554] {\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  position: relative;\n  margin-right: 15px;\n}\n.post-box .header .profile-pic img[data-v-05ce9554] {\n  border-radius: 50%;\n  position: absolute;\n  height: 100%;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.post-box .hashtag[data-v-05ce9554] {\n  margin: 0 2px;\n  text-decoration: none;\n}\n.post-box .footer[data-v-05ce9554] {\n  padding: 0 20px;\n}\n.post-box .footer .content[data-v-05ce9554], .post-box .footer .comments[data-v-05ce9554] {\n  margin: 8px 0;\n}\n.post-box .footer .comments[data-v-05ce9554] {\n  color: grey;\n}\n.post-box .add-comment[data-v-05ce9554] {\n  border-top: 1px solid #d4d4d4;\n  height: 50px;\n}\n.post-box .add-comment .comment[data-v-05ce9554] {\n  width: 90%;\n}\n.post-box .add-comment .comment input[data-v-05ce9554] {\n  height: 25px;\n  font-size: 1.1em;\n  width: 90%;\n  border: unset;\n  background-color: unset;\n}\n.post-box .add-comment .comment input[data-v-05ce9554]:focus-visible {\n  outline: unset;\n}\n.post-box .add-comment .publish[data-v-05ce9554] {\n  width: 10%;\n  color: skyblue;\n}\n.image-404[data-v-05ce9554] {\n  width: 100%;\n  height: 300px;\n  background-color: red;\n}", ""]);
+exports.push([module.i, "img[data-v-05ce9554] {\n  width: 100%;\n}\n.post-box[data-v-05ce9554] {\n  overflow: hidden;\n  border-radius: 4px;\n  border: 1px solid #d4d4d4;\n  width: 600px;\n  margin: 30px auto;\n  background-color: white;\n}\n.post-box .header[data-v-05ce9554] {\n  height: 60px;\n  padding: 0 20px;\n}\n.post-box .header .image-404[data-v-05ce9554] {\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  background-color: red;\n}\n.post-box .header .profile-pic[data-v-05ce9554] {\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  position: relative;\n  margin-right: 15px;\n}\n.post-box .header .profile-pic img[data-v-05ce9554] {\n  border-radius: 50%;\n  position: absolute;\n  height: 100%;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.post-box .hashtag[data-v-05ce9554] {\n  margin: 0 2px;\n  text-decoration: none;\n}\n.post-box .footer[data-v-05ce9554] {\n  padding: 0 20px;\n}\n.post-box .footer .content[data-v-05ce9554], .post-box .footer .comments[data-v-05ce9554] {\n  margin: 8px 0;\n}\n.post-box .footer .comments[data-v-05ce9554] {\n  color: grey;\n}\n.post-box .add-comment[data-v-05ce9554] {\n  border-top: 1px solid #d4d4d4;\n  height: 50px;\n}\n.post-box .add-comment .comment[data-v-05ce9554] {\n  width: 90%;\n}\n.post-box .add-comment .comment input[data-v-05ce9554] {\n  height: 25px;\n  font-size: 1.1em;\n  width: 90%;\n}\n.post-box .add-comment .publish[data-v-05ce9554] {\n  width: 10%;\n  color: skyblue;\n}\n.main .image-404[data-v-05ce9554] {\n  width: 100%;\n  height: 300px;\n  background-color: red;\n}", ""]);
 
 // exports
 
@@ -2209,7 +2282,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".fill-menu[data-v-1f42fb90] {\n  height: 60px;\n}\n.main-menu[data-v-1f42fb90] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 9999;\n  width: 100%;\n  height: 60px;\n  background-color: purple;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\na.icon[data-v-1f42fb90] {\n  width: 20px;\n  height: 20px;\n}\n.menu-right[data-v-1f42fb90] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}", ""]);
+exports.push([module.i, ".fill-menu[data-v-1f42fb90] {\n  height: 60px;\n}\n.main-menu[data-v-1f42fb90] {\n  position: fixed;\n  border-bottom: 1px solid #d4d4d4;\n  padding: 0 30px;\n  top: 0;\n  left: 0;\n  z-index: 9999;\n  width: 100%;\n  height: 60px;\n  background-color: white;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\na.icon[data-v-1f42fb90] {\n  width: 20px;\n  height: 20px;\n}\n.menu-right[data-v-1f42fb90] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\ninput[data-v-1f42fb90] {\n  border-radius: 6px;\n  margin: 0 10px;\n  padding: 2px 15px;\n  background-color: #d4d4d4;\n  height: 30px;\n}\n.sub-search[data-v-1f42fb90] {\n  position: fixed;\n  height: 300px;\n  z-index: 9999;\n  width: 300px;\n  left: calc(50% - 150px);\n  top: 60px;\n  background-color: #fafafa;\n}", ""]);
 
 // exports
 
@@ -4351,6 +4424,30 @@ var render = function () {
       _vm._m(0),
       _vm._v(" "),
       _c("div", { staticClass: "menu-right" }, [
+        _c("i", { staticClass: "fa-solid fa-magnifying-glass" }),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.inputText,
+              expression: "inputText",
+            },
+          ],
+          attrs: { type: "text", placeholder: "Search" },
+          domProps: { value: _vm.inputText },
+          on: {
+            keyup: _vm.controlInput,
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.inputText = $event.target.value
+            },
+          },
+        }),
+        _vm._v(" "),
         _c(
           "a",
           { staticClass: "icon", attrs: { href: "/admin/posts/create" } },
@@ -4373,9 +4470,19 @@ var render = function () {
             ),
           ]
         ),
-        _vm._v(" "),
-        _c("input", { attrs: { type: "text", placeholder: "Search" } }),
       ]),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "sub-search" }, [
+      _c(
+        "ul",
+        _vm._l(_vm.usersSearched, function (user, index) {
+          return _c("li", { key: index }, [
+            _c("span", [_vm._v(_vm._s(user.name))]),
+          ])
+        }),
+        0
+      ),
     ]),
   ])
 }

@@ -27,3 +27,16 @@
 svg{
    width: 20px;
 }
+
+input{
+    border: unset;
+    background-color: unset;
+}
+
+input:focus-visible{
+    outline: unset;
+}
+
+li{
+    list-style: none;
+}

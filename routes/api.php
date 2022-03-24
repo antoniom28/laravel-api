@@ -21,4 +21,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get("/posts" , "Api\PostController@index"); //prende tutti i post
 Route::get("/posts/{slug}" , "Api\PostController@index"); //prende il post specifico
-//Route::get("/posts" , "Api\PostController@index"); //prende tutti i post
+Route::get("/users/{name}" , "Api\PostController@indexUsers"); //prende tutti gli utenti

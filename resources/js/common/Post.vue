@@ -81,6 +81,7 @@ img{
         .image-404{
             width: 30px;
             height: 30px;
+            border-radius: 50%;
             background-color: red;
         }
 
@@ -130,12 +131,6 @@ img{
                     height: 25px;
                     font-size: 1.1em;
                     width: 90%;
-                    border: unset;
-                    background-color: unset;
-
-                    &:focus-visible{
-                        outline: unset;
-                    }
                 }
             }
 
@@ -146,7 +141,7 @@ img{
         }
 }
 
-.image-404{
+.main .image-404{
     width: 100%;
     height: 300px;
     background-color: red;
