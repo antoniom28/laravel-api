@@ -2084,7 +2084,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Header',
   data: function data() {
@@ -2095,22 +2094,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       usersSearched: []
     };
   },
-  created: function created() {
-    var _this = this;
-
-    window.addEventListener('click', function () {
-      console.log('ciao');
-      if (_this.showSearchBox == true) _this.showSearchBox = false;
-    });
-  },
   methods: {
-    openBox: function openBox() {
-      var _this2 = this;
-
-      setTimeout(function () {
-        _this2.showSearchBox = true;
-      }, 0);
-    },
     controlInput: function controlInput() {
       if (this.inputText != "" && this.inputText != this.prevInput) {
         this.prevInput = this.inputText;
@@ -2120,7 +2104,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     },
     getUsers: function getUsers() {
-      var _this3 = this;
+      var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var response;
@@ -2129,13 +2113,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this3.makeAxiosCall("api/users/".concat(_this3.inputText));
+                return _this.makeAxiosCall("api/users/".concat(_this.inputText));
 
               case 2:
                 response = _context.sent;
                 console.log(response.data); //this.posts.push(...response.data);
 
-                _this3.usersSearched = response.data; //for(let i=0; i<this.posts.length; i++)
+                _this.usersSearched = response.data; //for(let i=0; i<this.posts.length; i++)
                 //this.concatTag(this.posts[i]);
 
               case 5:
@@ -2298,7 +2282,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".fill-menu[data-v-1f42fb90] {\n  height: 60px;\n}\n.main-menu[data-v-1f42fb90] {\n  position: fixed;\n  border-bottom: 1px solid #d4d4d4;\n  padding: 0 30px;\n  top: 0;\n  left: 0;\n  z-index: 9999;\n  width: 100%;\n  height: 60px;\n  background-color: white;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\na.icon[data-v-1f42fb90] {\n  width: 20px;\n  height: 20px;\n}\n.menu-right[data-v-1f42fb90] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\ninput[data-v-1f42fb90] {\n  border-radius: 6px;\n  margin: 0 10px;\n  padding: 2px 15px;\n  background-color: #d4d4d4;\n  height: 30px;\n}\n.sub-search[data-v-1f42fb90] {\n  position: fixed;\n  height: 300px;\n  z-index: 9999;\n  width: 300px;\n  left: calc(50% - 150px);\n  top: 60px;\n  background-color: #fafafa;\n}", ""]);
+exports.push([module.i, ".fill-menu[data-v-1f42fb90] {\n  height: 60px;\n}\n.main-menu[data-v-1f42fb90] {\n  position: fixed;\n  border-bottom: 1px solid #d4d4d4;\n  padding: 0 30px;\n  top: 0;\n  left: 0;\n  z-index: 9999;\n  width: 100%;\n  height: 60px;\n  background-color: white;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\na.icon[data-v-1f42fb90] {\n  width: 20px;\n  height: 20px;\n}\n.menu-right[data-v-1f42fb90] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\ninput[data-v-1f42fb90] {\n  border-radius: 6px;\n  margin: 0 10px;\n  padding: 2px 15px;\n  background-color: #d4d4d4;\n  height: 30px;\n}\ninput:focus-visible ~ .sub-search[data-v-1f42fb90] {\n  display: block;\n}\n.sub-search[data-v-1f42fb90] {\n  display: none;\n  position: fixed;\n  height: 300px;\n  z-index: 9999;\n  width: 300px;\n  left: calc(50% - 150px);\n  top: 60px;\n  background-color: #fafafa;\n}", ""]);
 
 // exports
 
@@ -4454,9 +4438,6 @@ var render = function () {
           attrs: { type: "text", placeholder: "Search" },
           domProps: { value: _vm.inputText },
           on: {
-            click: function ($event) {
-              return _vm.openBox()
-            },
             keyup: _vm.controlInput,
             input: function ($event) {
               if ($event.target.composing) {
@@ -4466,6 +4447,18 @@ var render = function () {
             },
           },
         }),
+        _vm._v(" "),
+        _c("div", { staticClass: "sub-search" }, [
+          _c(
+            "ul",
+            _vm._l(_vm.usersSearched, function (user, index) {
+              return _c("li", { key: index }, [
+                _c("span", [_vm._v(_vm._s(user.name))]),
+              ])
+            }),
+            0
+          ),
+        ]),
         _vm._v(" "),
         _c(
           "a",
@@ -4491,20 +4484,6 @@ var render = function () {
         ),
       ]),
     ]),
-    _vm._v(" "),
-    _vm.showSearchBox
-      ? _c("div", { staticClass: "sub-search" }, [
-          _c(
-            "ul",
-            _vm._l(_vm.usersSearched, function (user, index) {
-              return _c("li", { key: index }, [
-                _c("span", [_vm._v(_vm._s(user.name))]),
-              ])
-            }),
-            0
-          ),
-        ])
-      : _vm._e(),
   ])
 }
 var staticRenderFns = [
