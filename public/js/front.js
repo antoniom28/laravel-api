@@ -2095,10 +2095,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   methods: {
-    stillShow: function stillShow() {
-      console.log('ciao');
-      document.querySelector('.sub-search').style.display = "block";
-    },
     controlInput: function controlInput() {
       if (this.inputText != "" && this.inputText != this.prevInput) {
         this.prevInput = this.inputText;

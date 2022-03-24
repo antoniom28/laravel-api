@@ -39,10 +39,6 @@ export default {
       }
     },
     methods:{
-      stillShow(){
-        console.log('ciao');
-        document.querySelector('.sub-search').style.display = "block";
-      },
       controlInput(){
         if(this.inputText != "" && this.inputText != this.prevInput){
           this.prevInput = this.inputText;
@@ -107,8 +103,6 @@ input{
   padding: 2px 15px;
   background-color: #d4d4d4;
   height: 30px;
-
-  
 }
 
 input:focus-visible + .sub-search{
