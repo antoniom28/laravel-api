@@ -2084,6 +2084,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Header',
   data: function data() {
@@ -2282,7 +2287,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".fill-menu[data-v-1f42fb90] {\n  height: 60px;\n}\n.main-menu[data-v-1f42fb90] {\n  position: fixed;\n  border-bottom: 1px solid #d4d4d4;\n  padding: 0 30px;\n  top: 0;\n  left: 0;\n  z-index: 9999;\n  width: 100%;\n  height: 60px;\n  background-color: white;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\na.icon[data-v-1f42fb90] {\n  width: 20px;\n  height: 20px;\n}\n.menu-right[data-v-1f42fb90] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\ninput[data-v-1f42fb90] {\n  border-radius: 6px;\n  margin: 0 10px;\n  padding: 2px 15px;\n  background-color: #d4d4d4;\n  height: 30px;\n}\ninput:focus-visible + .sub-search[data-v-1f42fb90] {\n  display: block;\n}\n.sub-search[data-v-1f42fb90]:hover {\n  display: block;\n}\n.sub-search[data-v-1f42fb90] {\n  display: none;\n  position: fixed;\n  height: 300px;\n  z-index: 9999;\n  width: 300px;\n  left: calc(50% - 150px);\n  top: 60px;\n  background-color: #fafafa;\n}", ""]);
+exports.push([module.i, ".image[data-v-1f42fb90] {\n  margin: 0 15px;\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n}\nimg[data-v-1f42fb90] {\n  height: 100%;\n  width: 100%;\n  border-radius: 50%;\n}\n.image-404[data-v-1f42fb90] {\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  background-color: red;\n}\n.fill-menu[data-v-1f42fb90] {\n  height: 60px;\n}\n.main-menu[data-v-1f42fb90] {\n  position: fixed;\n  border-bottom: 1px solid #d4d4d4;\n  padding: 0 30px;\n  top: 0;\n  left: 0;\n  z-index: 9999;\n  width: 100%;\n  height: 60px;\n  background-color: white;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\na.icon[data-v-1f42fb90] {\n  width: 20px;\n  height: 20px;\n}\n.menu-right[data-v-1f42fb90] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\ninput[data-v-1f42fb90] {\n  border-radius: 6px;\n  margin: 0 10px;\n  padding: 2px 15px;\n  background-color: #d4d4d4;\n  height: 30px;\n}\ninput:focus-visible + .sub-search[data-v-1f42fb90] {\n  display: block;\n}\n.sub-search[data-v-1f42fb90]:hover {\n  display: block;\n}\n.sub-search[data-v-1f42fb90] {\n  display: none;\n  padding: 20px 10px;\n  position: fixed;\n  height: 300px;\n  z-index: 9999;\n  width: 300px;\n  left: calc(50% - 150px);\n  top: 60px;\n  background-color: #fafafa;\n}\n.sub-search li[data-v-1f42fb90] {\n  background-color: white;\n  height: 60px;\n}\n.sub-search li[data-v-1f42fb90]:hover {\n  background-color: #f4f4f4;\n  cursor: pointer;\n}", ""]);
 
 // exports
 
@@ -4452,9 +4457,19 @@ var render = function () {
           _c(
             "ul",
             _vm._l(_vm.usersSearched, function (user, index) {
-              return _c("li", { key: index }, [
-                _c("span", [_vm._v(_vm._s(user.name))]),
-              ])
+              return _c(
+                "li",
+                { key: index, staticClass: "align-items-center" },
+                [
+                  _c("div", { staticClass: "image" }, [
+                    user.avatar
+                      ? _c("img", { attrs: { src: "storage/" + user.avatar } })
+                      : _c("div", { staticClass: "image-404" }),
+                  ]),
+                  _vm._v(" "),
+                  _c("span", [_vm._v(_vm._s(user.name))]),
+                ]
+              )
             }),
             0
           ),

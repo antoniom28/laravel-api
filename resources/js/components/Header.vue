@@ -12,9 +12,14 @@
           <div class="sub-search">
           <ul>
             <li
+              class="align-items-center"
               v-for="(user,index) in usersSearched"
               :key="index"
             >
+              <div class="image">
+                <img v-if="user.avatar" :src="'storage/'+user.avatar">
+                <div v-else class="image-404"></div>
+              </div>
               <span>{{user.name}}</span>
             </li>
           </ul>
@@ -68,6 +73,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.image{
+  margin: 0 15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+img{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.image-404{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: red;
+}
+
 .fill-menu{
   height: 60px;
 }
@@ -115,6 +139,7 @@ input:focus-visible + .sub-search{
 
 .sub-search{
   display: none;
+  padding: 20px 10px;
   position: fixed;
   height: 300px;
   z-index: 9999;
@@ -122,5 +147,15 @@ input:focus-visible + .sub-search{
   left: calc(50% - 150px);
   top: 60px;
   background-color: rgba(250,250,250);
+
+  li{
+    background-color: white;
+    height: 60px;
+
+    &:hover{
+      background-color: #f4f4f4;
+      cursor: pointer;
+    }
+  }
 }
 </style>
