@@ -2065,6 +2065,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Post",
   props: {
@@ -2073,6 +2074,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      page: 1,
       commentText: "",
       comments: this.post.comments
     };
@@ -2362,7 +2364,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "img[data-v-05ce9554] {\n  width: 100%;\n}\n.user-comment[data-v-05ce9554] {\n  display: inline-block;\n  color: black;\n}\n.post-box[data-v-05ce9554] {\n  overflow: hidden;\n  border-radius: 4px;\n  border: 1px solid #d4d4d4;\n  width: 600px;\n  margin: 30px auto;\n  background-color: white;\n}\n.post-box .header[data-v-05ce9554] {\n  height: 60px;\n  padding: 0 20px;\n}\n.post-box .header .image-404[data-v-05ce9554] {\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  background-color: red;\n}\n.post-box .header .profile-pic[data-v-05ce9554] {\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  position: relative;\n  margin-right: 15px;\n}\n.post-box .header .profile-pic img[data-v-05ce9554] {\n  border-radius: 50%;\n  position: absolute;\n  height: 100%;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.post-box .hashtag[data-v-05ce9554] {\n  margin: 0 2px;\n  text-decoration: none;\n}\n.post-box .footer[data-v-05ce9554] {\n  padding: 0 20px;\n}\n.post-box .footer .content[data-v-05ce9554], .post-box .footer .comments[data-v-05ce9554] {\n  margin: 8px 0;\n}\n.post-box .footer .comments[data-v-05ce9554] {\n  color: grey;\n}\n.post-box .add-comment[data-v-05ce9554] {\n  border-top: 1px solid #d4d4d4;\n  height: 50px;\n}\n.post-box .add-comment .comment[data-v-05ce9554] {\n  width: 90%;\n}\n.post-box .add-comment .comment input[data-v-05ce9554] {\n  height: 25px;\n  font-size: 1.1em;\n  width: 90%;\n}\n.post-box .add-comment .publish[data-v-05ce9554] {\n  width: 10%;\n  color: skyblue;\n}\n.post-box .add-comment .publish[data-v-05ce9554]:hover {\n  cursor: pointer;\n  transform: scale(1.1);\n}\n.main .image-404[data-v-05ce9554] {\n  width: 100%;\n  height: 300px;\n  background-color: red;\n}", ""]);
+exports.push([module.i, "img[data-v-05ce9554] {\n  width: 100%;\n}\n.user-comment[data-v-05ce9554] {\n  display: inline-block;\n  color: black;\n}\n.load-comments[data-v-05ce9554] {\n  cursor: pointer;\n  margin-left: 7px;\n}\n.post-box[data-v-05ce9554] {\n  overflow: hidden;\n  border-radius: 4px;\n  border: 1px solid #d4d4d4;\n  width: 600px;\n  margin: 30px auto;\n  background-color: white;\n}\n.post-box .header[data-v-05ce9554] {\n  height: 60px;\n  padding: 0 20px;\n}\n.post-box .header .image-404[data-v-05ce9554] {\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  background-color: red;\n}\n.post-box .header .profile-pic[data-v-05ce9554] {\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  position: relative;\n  margin-right: 15px;\n}\n.post-box .header .profile-pic img[data-v-05ce9554] {\n  border-radius: 50%;\n  position: absolute;\n  height: 100%;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.post-box .hashtag[data-v-05ce9554] {\n  margin: 0 2px;\n  text-decoration: none;\n}\n.post-box .footer[data-v-05ce9554] {\n  padding: 0 20px;\n}\n.post-box .footer .content[data-v-05ce9554], .post-box .footer .comments[data-v-05ce9554] {\n  margin: 8px 0;\n}\n.post-box .footer .comments[data-v-05ce9554] {\n  color: grey;\n}\n.post-box .add-comment[data-v-05ce9554] {\n  border-top: 1px solid #d4d4d4;\n  height: 50px;\n}\n.post-box .add-comment .comment[data-v-05ce9554] {\n  width: 90%;\n}\n.post-box .add-comment .comment input[data-v-05ce9554] {\n  height: 25px;\n  font-size: 1.1em;\n  width: 90%;\n}\n.post-box .add-comment .publish[data-v-05ce9554] {\n  width: 10%;\n  color: skyblue;\n}\n.post-box .add-comment .publish[data-v-05ce9554]:hover {\n  cursor: pointer;\n  transform: scale(1.1);\n}\n.main .image-404[data-v-05ce9554] {\n  width: 100%;\n  height: 300px;\n  background-color: red;\n}", ""]);
 
 // exports
 
@@ -4443,18 +4445,40 @@ var render = function () {
       _c(
         "div",
         { staticClass: "comments" },
-        _vm._l(_vm.comments, function (comment, index) {
-          return _c("div", { key: index }, [
-            _c("h3", { staticClass: "user-comment" }, [
-              _vm._v(" " + _vm._s(_vm.mainUser.name) + " "),
-            ]),
-            _vm._v(" "),
-            _c("span", { staticStyle: { color: "black" } }, [
-              _vm._v(": " + _vm._s(comment.content) + " "),
-            ]),
-          ])
-        }),
-        0
+        [
+          _vm._l(
+            _vm.comments.length > 5
+              ? _vm.comments.slice(0, 5 * _vm.page)
+              : _vm.comments,
+            function (comment, index) {
+              return _c("div", { key: index }, [
+                _c("h3", { staticClass: "user-comment" }, [
+                  _vm._v(" " + _vm._s(_vm.mainUser.name) + " "),
+                ]),
+                _vm._v(" "),
+                _c("span", { staticStyle: { color: "black" } }, [
+                  _vm._v(": " + _vm._s(comment.content) + " "),
+                ]),
+              ])
+            }
+          ),
+          _vm._v(" "),
+          5 * _vm.page < _vm.comments.length
+            ? _c(
+                "h5",
+                {
+                  staticClass: "load-comments",
+                  on: {
+                    click: function ($event) {
+                      _vm.page++
+                    },
+                  },
+                },
+                [_vm._v(" Read more comments ")]
+              )
+            : _vm._e(),
+        ],
+        2
       ),
     ]),
     _vm._v(" "),

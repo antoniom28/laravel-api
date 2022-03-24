@@ -19,10 +19,8 @@ class PostController extends Controller
         foreach($posts as $post){
             $post['user'] = $post->user;
             $post['tags'] = $post->tags;
-            $post['comments'] = $post->comments;
+            $post['comments'] = $post->comments; 
         }
-        //$posts = Post::where('category_id' , $id)->get();
-        //$posts = Post::where('category_id' , '!=' , null)->get();
         return response()->json($posts);
     }
 

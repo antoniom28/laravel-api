@@ -40,12 +40,13 @@
             </div>
             <div class="comments">
                 <div
-                    v-for="(comment,index) in comments"
+                    v-for="(comment,index) in comments.length > 5 ? comments.slice(0, 5*page) : comments"
                     :key="index"
                 >
                     <h3 class="user-comment"> {{mainUser.name}} </h3>
                     <span style="color:black">: {{comment.content}} </span>
                 </div>
+                <h5 class="load-comments" v-if="5*page < comments.length" @click="page++"> Read more comments </h5>
             </div>
         </div>
 
@@ -70,6 +71,7 @@ export default {
     }, 
     data(){
         return{
+            page: 1,
             commentText : "",
             comments : this.post.comments,
         }
@@ -101,6 +103,11 @@ img{
 .user-comment{
     display: inline-block;
     color: black;
+}
+
+.load-comments{
+    cursor: pointer;
+    margin-left: 7px;
 }
 
 .post-box{
