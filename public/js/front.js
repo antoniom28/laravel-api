@@ -1920,9 +1920,17 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_Header_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Header.vue */ "./resources/js/components/Header.vue");
-/* harmony import */ var _components_Main_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Main.vue */ "./resources/js/components/Main.vue");
-/* harmony import */ var _components_Footer_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Footer.vue */ "./resources/js/components/Footer.vue");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Header_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Header.vue */ "./resources/js/components/Header.vue");
+/* harmony import */ var _components_Main_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Main.vue */ "./resources/js/components/Main.vue");
+/* harmony import */ var _components_Footer_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Footer.vue */ "./resources/js/components/Footer.vue");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -1937,9 +1945,49 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'App',
   components: {
-    Header: _components_Header_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Main: _components_Main_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Footer: _components_Footer_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    Header: _components_Header_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Main: _components_Main_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    Footer: _components_Footer_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+  },
+  data: function data() {
+    return {
+      mainUser: null
+    };
+  },
+  created: function created() {
+    this.getUser();
+  },
+  methods: {
+    getUser: function getUser() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _this.makeAxiosCall("admin/user");
+
+              case 2:
+                response = _context.sent;
+                _this.mainUser = response.data;
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    makeAxiosCall: function makeAxiosCall(url) {
+      console.log("call of axos");
+      return axios.get(url, {
+        params: {}
+      });
+    }
   }
 });
 
@@ -2011,10 +2059,47 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Post",
   props: {
-    post: Object
+    post: Object,
+    mainUser: Object
+  },
+  data: function data() {
+    return {
+      commentText: "",
+      comments: this.post.comments
+    };
+  },
+  methods: {
+    addComment: function addComment() {
+      var _this = this;
+
+      axios.post('api/new-comment', {
+        content: this.commentText,
+        user_id: this.mainUser.id,
+        post_id: this.post.id
+      }).then(function (response) {
+        _this.commentText = "";
+        console.log(response.data);
+
+        _this.updatePost();
+      });
+    },
+    updatePost: function updatePost() {
+      var _this2 = this;
+
+      axios.get('api/posts/' + this.post.id).then(function (response) {
+        console.log(response.data[0].comments);
+        _this2.comments = response.data[0].comments;
+      });
+    }
   }
 });
 
@@ -2197,6 +2282,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 //import axios from "axios";
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2208,6 +2294,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   components: {
     Post: _common_Post_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  props: {
+    mainUser: Object
   },
   created: function created() {
     this.getPost();
@@ -2273,7 +2362,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "img[data-v-05ce9554] {\n  width: 100%;\n}\n.post-box[data-v-05ce9554] {\n  overflow: hidden;\n  border-radius: 4px;\n  border: 1px solid #d4d4d4;\n  width: 600px;\n  margin: 30px auto;\n  background-color: white;\n}\n.post-box .header[data-v-05ce9554] {\n  height: 60px;\n  padding: 0 20px;\n}\n.post-box .header .image-404[data-v-05ce9554] {\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  background-color: red;\n}\n.post-box .header .profile-pic[data-v-05ce9554] {\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  position: relative;\n  margin-right: 15px;\n}\n.post-box .header .profile-pic img[data-v-05ce9554] {\n  border-radius: 50%;\n  position: absolute;\n  height: 100%;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.post-box .hashtag[data-v-05ce9554] {\n  margin: 0 2px;\n  text-decoration: none;\n}\n.post-box .footer[data-v-05ce9554] {\n  padding: 0 20px;\n}\n.post-box .footer .content[data-v-05ce9554], .post-box .footer .comments[data-v-05ce9554] {\n  margin: 8px 0;\n}\n.post-box .footer .comments[data-v-05ce9554] {\n  color: grey;\n}\n.post-box .add-comment[data-v-05ce9554] {\n  border-top: 1px solid #d4d4d4;\n  height: 50px;\n}\n.post-box .add-comment .comment[data-v-05ce9554] {\n  width: 90%;\n}\n.post-box .add-comment .comment input[data-v-05ce9554] {\n  height: 25px;\n  font-size: 1.1em;\n  width: 90%;\n}\n.post-box .add-comment .publish[data-v-05ce9554] {\n  width: 10%;\n  color: skyblue;\n}\n.main .image-404[data-v-05ce9554] {\n  width: 100%;\n  height: 300px;\n  background-color: red;\n}", ""]);
+exports.push([module.i, "img[data-v-05ce9554] {\n  width: 100%;\n}\n.user-comment[data-v-05ce9554] {\n  display: inline-block;\n  color: black;\n}\n.post-box[data-v-05ce9554] {\n  overflow: hidden;\n  border-radius: 4px;\n  border: 1px solid #d4d4d4;\n  width: 600px;\n  margin: 30px auto;\n  background-color: white;\n}\n.post-box .header[data-v-05ce9554] {\n  height: 60px;\n  padding: 0 20px;\n}\n.post-box .header .image-404[data-v-05ce9554] {\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  background-color: red;\n}\n.post-box .header .profile-pic[data-v-05ce9554] {\n  width: 30px;\n  height: 30px;\n  border-radius: 50%;\n  position: relative;\n  margin-right: 15px;\n}\n.post-box .header .profile-pic img[data-v-05ce9554] {\n  border-radius: 50%;\n  position: absolute;\n  height: 100%;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.post-box .hashtag[data-v-05ce9554] {\n  margin: 0 2px;\n  text-decoration: none;\n}\n.post-box .footer[data-v-05ce9554] {\n  padding: 0 20px;\n}\n.post-box .footer .content[data-v-05ce9554], .post-box .footer .comments[data-v-05ce9554] {\n  margin: 8px 0;\n}\n.post-box .footer .comments[data-v-05ce9554] {\n  color: grey;\n}\n.post-box .add-comment[data-v-05ce9554] {\n  border-top: 1px solid #d4d4d4;\n  height: 50px;\n}\n.post-box .add-comment .comment[data-v-05ce9554] {\n  width: 90%;\n}\n.post-box .add-comment .comment input[data-v-05ce9554] {\n  height: 25px;\n  font-size: 1.1em;\n  width: 90%;\n}\n.post-box .add-comment .publish[data-v-05ce9554] {\n  width: 10%;\n  color: skyblue;\n}\n.post-box .add-comment .publish[data-v-05ce9554]:hover {\n  cursor: pointer;\n  transform: scale(1.1);\n}\n.main .image-404[data-v-05ce9554] {\n  width: 100%;\n  height: 300px;\n  background-color: red;\n}", ""]);
 
 // exports
 
@@ -4255,7 +4344,11 @@ var render = function () {
   return _c(
     "div",
     { staticClass: "main-container" },
-    [_c("Header"), _vm._v(" "), _c("Main")],
+    [
+      _c("Header"),
+      _vm._v(" "),
+      _c("Main", { attrs: { mainUser: _vm.mainUser } }),
+    ],
     1
   )
 }
@@ -4347,9 +4440,22 @@ var render = function () {
         2
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "comments" }, [
-        _vm._v("\n            Comments\n        "),
-      ]),
+      _c(
+        "div",
+        { staticClass: "comments" },
+        _vm._l(_vm.comments, function (comment, index) {
+          return _c("div", { key: index }, [
+            _c("h3", { staticClass: "user-comment" }, [
+              _vm._v(" " + _vm._s(_vm.mainUser.name) + " "),
+            ]),
+            _vm._v(" "),
+            _c("span", { staticStyle: { color: "black" } }, [
+              _vm._v(": " + _vm._s(comment.content) + " "),
+            ]),
+          ])
+        }),
+        0
+      ),
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "add-comment align-items-center" }, [
@@ -4371,12 +4477,45 @@ var render = function () {
           ]
         ),
         _vm._v(" "),
-        _c("input", { attrs: { type: "text", placeholder: "Add a comment" } }),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.commentText,
+              expression: "commentText",
+            },
+          ],
+          attrs: { type: "text", placeholder: "Add a comment" },
+          domProps: { value: _vm.commentText },
+          on: {
+            keyup: function ($event) {
+              if (
+                !$event.type.indexOf("key") &&
+                _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+              ) {
+                return null
+              }
+              return _vm.addComment.apply(null, arguments)
+            },
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.commentText = $event.target.value
+            },
+          },
+        }),
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "publish align-items-center" }, [
-        _vm._v("\n            Publish\n        "),
-      ]),
+      _c(
+        "div",
+        {
+          staticClass: "publish align-items-center",
+          on: { click: _vm.addComment },
+        },
+        [_vm._v("\n            Publish\n        ")]
+      ),
     ]),
   ])
 }
@@ -4567,7 +4706,10 @@ var render = function () {
       "div",
       { staticClass: "all-posts" },
       _vm._l(_vm.posts, function (elem, index) {
-        return _c("Post", { key: index, attrs: { post: elem } })
+        return _c("Post", {
+          key: index,
+          attrs: { post: elem, mainUser: _vm.mainUser },
+        })
       }),
       1
     ),

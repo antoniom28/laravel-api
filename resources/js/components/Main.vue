@@ -5,6 +5,7 @@
       v-for="(elem, index) in posts" 
       :key="index" 
       :post="elem" 
+      :mainUser="mainUser"
       />
     </div>
   </main>
@@ -23,6 +24,9 @@ export default {
     },
     components:{
       Post,
+    },
+    props:{
+      mainUser: Object,
     },
     created: function(){
       this.getPost();

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,8 @@ Route::get('/', function () {
         return view('welcome');
 })->name('homepage');
 
+
+
 Auth::routes();
 
 Route::middleware('auth')
@@ -31,5 +34,8 @@ Route::middleware('auth')
         Route::resource('/posts' , 'PostController');
         Route::resource('/tags' , 'TagController');
         Route::resource('/users' , 'UserController');
+        Route::get("/user" , function (){
+            return response()->json(['name' => Auth::user()->name , 'id' => Auth::user()->id]);
+        }); //prende utente attuale
     });
 

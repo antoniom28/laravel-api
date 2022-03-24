@@ -1,7 +1,7 @@
 <template>
   <div class="main-container">
       <Header />
-      <Main />
+      <Main :mainUser="mainUser"/>
     <!--  <Footer /> -->
   </div>
 </template>
@@ -16,7 +16,28 @@ export default {
         Header,
         Main,
         Footer,
-    }
+    },
+    data(){
+      return{
+        mainUser : null,
+      }
+    },
+    created: function(){
+      this.getUser();
+    },
+    methods:{
+      async getUser() {
+      let response = await this.makeAxiosCall(`admin/user`);
+      this.mainUser = response.data;
+    },
+    makeAxiosCall(url) {
+      console.log(`call of axos`);
+      return axios.get(url, {
+        params: {
+        },
+      });
+    },
+    },
 }
 </script>
 
