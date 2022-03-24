@@ -45,7 +45,6 @@ export default {
       console.log(`call of axos`);
       return axios.get(url, {
         params: {
-          api_key: "8de7c27ea07119ebc4c79cbfffb7d231",
         },
       });
     },
